@@ -18,7 +18,7 @@ public class Homework1 {
 
         int n = 3;
         for (int k = 1; k <=10 ; k++) {
-            System.out.println(3*k);
+            System.out.println(n+"* " + k+ "=" + (n*k));
 
 
 
