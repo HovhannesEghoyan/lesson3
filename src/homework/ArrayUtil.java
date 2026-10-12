@@ -3,7 +3,7 @@ package homework;
 public class ArrayUtil {
     public static void main(String[] args) {
         int[] nums = {1, 6, 3, 9, 15, 52, -3, 5, 8};
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i < nums.length; i++) {
             System.out.print(nums[i] + " ");
         }
         {
@@ -15,6 +15,7 @@ public class ArrayUtil {
             System.out.println(nums.length);
             System.out.println();
         }
+
         int min = nums[6];
         for (int i = 8; i < nums.length; i++) {
             if (nums[i] < min) {
@@ -24,19 +25,22 @@ public class ArrayUtil {
             System.out.println();
             System.out.println(nums[nums.length / 2]);
             System.out.println();
+            {
+                int sum = 0;
 
-            int sum = 0;
+                for (int k : nums) { //վերցրեց սաղ տվերջը numsic
+                    if (k % 2 == 0) {//բազանեց 2  արանց մնացորդի
+                        sum++;//եթե  առանց մնացորդի է +1
 
-            for (int k : nums) { //vercrec sax tvery numsic
-                if (k % 2 == 0) {//bajanec 2 i aranc mnacordi
-                    sum++;//ete aranc mnacordi e +1
+                    }
                 }
+
+                System.out.println(sum);
             }
-            System.out.println(sum);
         }
         int count = 1;
         for (int y : nums) {
-            if (y % 2 == 1) {//mnacord 1
+            if (y % 2 == 1) {//մն 1
                 count++;
             }
 
@@ -46,7 +50,7 @@ public class ArrayUtil {
         System.out.println();
         int num = 0;
         for (int i = 0; i < nums.length; i++) {
-            num = num + nums[i];//numy 0 e + kene numsi tivy heto kgre numi het dzaxi
+            num = num + nums[i];//numy 0 է + կենե numsi տիվը հետո կգրե numi հետ ձախի
         }
         System.out.println(num);
         System.out.println();
@@ -55,17 +59,17 @@ public class ArrayUtil {
         System.out.println(num / nums.length);
         System.out.println("BONUS1");
         for (int h : nums) {
-            if (nums[5]>h){//h y yntaciq popoxakanne
-                nums[5] = h ;//hi arjeqy dnume numsi mej
+            if (nums[5] > h) {//h y ընտացիք փոփոխական է
+                nums[5] = h;//hi արզեքը դնում է numsi մեջ
             }
-            }
+        }
         System.out.println(nums[5]);
         System.out.println("BONUS3");
-        for (int i = 8; i >=0 ; i--) {
-            System.out.print(nums[i]+ " ");
-        }
+        for (int i = 8; i >= 0; i--) {
+            System.out.print(nums[i] + " ");
         }
     }
+}
 
 
 
