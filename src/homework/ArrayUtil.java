@@ -38,9 +38,9 @@ public class ArrayUtil {
                 System.out.println(sum);
             }
         }
-        int count = 1;
+        int count = 0;
         for (int y : nums) {
-            if (y % 2 == 1) {//մն 1
+            if (y % 2 == 1||y%2==-1) {//մն 1
                 count++;
             }
 
@@ -49,12 +49,12 @@ public class ArrayUtil {
         System.out.println(count);
         System.out.println();
         int num = 0;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i <nums.length ; i++) {
             num = num + nums[i];//numy 0 է + կենե numsi տիվը հետո կգրե numi հետ ձախի
         }
         System.out.println(num);
         System.out.println();
-        for (int i = 0; i <= nums.length; i++) {
+        for ( int i = 0; i <= nums.length; i++) {
         }
         System.out.println(num / nums.length);
         System.out.println("BONUS1");
@@ -65,7 +65,7 @@ public class ArrayUtil {
         }
         System.out.println(nums[5]);
         System.out.println("BONUS3");
-        for (int i = 8; i >= 0; i--) {
+        for ( int i = 8; i >= 0; i--) {
             System.out.print(nums[i] + " ");
         }
     }
