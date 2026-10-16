@@ -48,6 +48,24 @@ public class ArrayHomework {
                 secMax = numbers[i];
         }
         System.out.println(secMax);
+        System.out.println("BONUS3");
+        int[] num = {3, 6, 3, 8, 9, 6, 2, 3, 5, 3};
+        int mostfrequent = num[0];
+        int maxcount = 0;
+        for (int i = 0; i < num.length; i++) {
+            int total = 0;
+            for (int j = 0; j < num.length; j++) {
+                if (num[i] == num[j]) {
+                    total++;
+                }
+            }
+            if (total > maxcount) {
+                maxcount = total;
+                mostfrequent = num[i];
+            }
+        }
+        System.out.println(mostfrequent);
+        System.out.println(maxcount);
     }
 
 
