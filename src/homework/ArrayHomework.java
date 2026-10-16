@@ -10,6 +10,7 @@ public class ArrayHomework {
         for (int i : nums)
             if (i == n) {
                 sum++;
+
             }
         System.out.print("Հանդիպում է " + sum + " անգամ:" + "\n");
         //Առաջադրանք 1

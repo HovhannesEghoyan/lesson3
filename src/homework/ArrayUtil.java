@@ -44,6 +44,7 @@ public class ArrayUtil {
                 count++;
             }
 
+
         }
         System.out.println();
         System.out.println(count);
