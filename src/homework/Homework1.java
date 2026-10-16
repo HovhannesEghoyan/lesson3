@@ -16,6 +16,7 @@ public class Homework1 {
         int j = 10;
         System.out.println("Գումարը հավասար է " + (i+j) );
 
+
         int n = 3;
         for (int k = 1; k <=10 ; k++) {
             System.out.println(n+"* " + k+ "=" + (n*k));

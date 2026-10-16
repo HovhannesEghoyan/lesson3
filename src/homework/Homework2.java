@@ -38,6 +38,7 @@ public class Homework2 {
         System.out.println("_____");
 
 
+
         for (int i = 5; i >= 1; i--) {
             for (int j = 4; j >= i; j--) {
                 System.out.print(" ");
