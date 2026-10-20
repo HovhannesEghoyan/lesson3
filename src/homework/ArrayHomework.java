@@ -6,7 +6,7 @@ public class ArrayHomework {
     public static void main(String[] args) {
         int[] nums = {6, 3, 8, 6, 1, 9, 6, 4, 2, 6,};
         int n = 6;
-        int sum = 0;
+        int sum= 0;
         for (int i : nums)
             if (i == n) {
                 sum++;
