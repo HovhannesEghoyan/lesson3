@@ -4,6 +4,9 @@ public class CharArrayUtil {
     public static void main(String[] args) {
         char[] chars = {'J', 'a', 'v', 'a', ' ', 'i', 's', ' ', 'f', 'u', 'n', '!'};
         //Խնդիր 1
+        for (int i = 0; i < chars.length; i++) {
+
+        }
         System.out.println(chars);
         System.out.println();
         //Խնդիր 2
@@ -82,43 +85,61 @@ public class CharArrayUtil {
         System.out.print(chars1);
         System.out.println();
         //Խնդիր 10
-        boolean Palindrome = true;
+        boolean palindrome = true;
         for (int i = 0; i < chars.length / 2; i++) { //կաշխատի մինչև մեջտեղ և կհամեմատվի  մյուս կեսի հետ
-            if (chars[i] != chars[chars.length - 1])//կհամեմատ է առաջին ու վերջին թվերը
-                Palindrome = false;
-            break;
+            if (chars[i] != chars[chars.length - 1 - i]) {//կհամեմատ է առաջին ու վերջին թվերը
+                palindrome = false;
+                break;
+            }
         }
-        System.out.println("Palindrome is " + Palindrome);
+        System.out.println("Palindrome is " + palindrome);
         System.out.println();
         System.out.println("BONUS2");
-        boolean a = false;
         char[] first = {'J', 'a', 'v', 'a'};
         char[] second = {'J', 'a', 'v', 'a'};
-        if (first == second) ;
-        else if (first.length == second.length) ;
-        a = true;
 
-        System.out.println("Arrays are equal: " + a);
-        System.out.println("BONUS3");
-        char[] chars2 = {'a', 'b', 'a', 'c', 'b', 'd',};
-        boolean repetition = false;
-        for (int i = 0; i < chars2.length; i++) {
-            for (int j = 0; j < i; j++) {
-                if (chars2[i] == chars2[j]) {
-                    repetition = true;
+        boolean equal = true;
+
+        if (first.length != second.length) {
+            equal = false;
+        } else {
+            for (int i = 0; i < first.length; i++) {
+                if (first[i] != second[i]) {
+                    equal = false;
                     break;
                 }
             }
-            if (repetition == true) {
-                System.out.print(chars2[i] + ", ");
+        }
+
+        System.out.println("Arrays are equal: " + equal);
 
 
+        System.out.println("BONUS3");
+        char[] chars2 = {'a', 'b', 'a', 'c', 'b', 'd', 'a'};
 
+        for (int i = 0; i <chars2.length; i++) {
+            boolean duplicate = false;
+
+            for (int j = 0; j <i; j++) {
+                if (chars2[i] == chars2[j]) {
+                    duplicate = true;
+                    break;
+                }
+
+            }
+
+
+            if (!duplicate) {
+                System.out.print(chars2[i] + " ");
             }
         }
 
+
     }
 }
+
+
+
 
 
 
