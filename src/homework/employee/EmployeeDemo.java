@@ -28,6 +28,9 @@ public class EmployeeDemo {
                 case "4":
                     searchByCom();
                     break;
+                case "5":
+                    searchEmployeeWithMinSalary();
+                    break;
                 case "6":
                     deleteEmployeeByID();
                     break;
@@ -46,6 +49,7 @@ public class EmployeeDemo {
         System.out.println("Please input 2 for PRINT ALL EMPLOYEES");
         System.out.println("Please input 3 for SEARCH EMPLOYEE BY ID");
         System.out.println("Please input 4 for SEARCH EMPLOYEES BY COMPANY NAME");
+        System.out.println("Please input 5 for SEARCH EMPLOYEES BY MINIMUM SALARY");
         System.out.println("Please input 6 for DELETE EMPLOYEE BY ID");
 ;
     }
@@ -75,6 +79,12 @@ public class EmployeeDemo {
         System.out.println("Please input employee ID");
         String delByID= scanner.nextLine();
         employeeStorage.deleteById(delByID);
+    }
+    private  static  void searchEmployeeWithMinSalary(){
+        System.out.println("Please input minimum salary");
+        double minSalary = Double.parseDouble(scanner.nextLine());
+        employeeStorage.searchByMinSalary(minSalary);
+
     }
 
 }
