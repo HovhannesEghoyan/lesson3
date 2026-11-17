@@ -1,5 +1,7 @@
 package homework.employee;
 
+import java.util.Objects;
+
 public class Employee {
 
     private String name;
@@ -81,19 +83,24 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", employeeID='" + employeeID + '\'' +
                 ", salary=" + salary +
-                ", company='" + company + '\'' +
+                ", company=" + company +
                 ", position='" + position + '\'' +
                 '}';
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        if (employeeID.equals(((Employee) o).employeeID)) {
+            return true;
+        }
+        return false;
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(employeeID);
     }
 }
 

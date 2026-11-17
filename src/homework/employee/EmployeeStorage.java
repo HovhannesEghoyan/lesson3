@@ -68,7 +68,7 @@ public class EmployeeStorage {
     public void serachByCom(String company) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            if (array[i].getCompany().equalsIgnoreCase(company)) {
+            if (array[i].getCompany().equals(company)) {
                 System.out.println(array[i] + " ");
                 found = true;
 
@@ -79,6 +79,7 @@ public class EmployeeStorage {
             System.out.println("Employee with this company not found");
         }
     }
+
 
     public void deleteById(String id) {
         int index = -1;
@@ -111,6 +112,18 @@ public class EmployeeStorage {
             System.out.println("Employee with this minimum salary "+ minSalary+" not found");
         }
 
+    }
+    public void printByIdEmpl(String companyId){
+        boolean found =false;
+        for (int i = 0; i <size ; i++) {
+            if (array[i].getCompany().equals(companyId)){
+                System.out.println(array[i]+" ");
+                found=true;
+            }
+        }
+        if (!found){
+            System.out.println("There is no employee in this company");
+        }
     }
 
 }

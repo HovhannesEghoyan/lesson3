@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 
 public class EmployeeDemo {
-    public static Scanner scanner = new Scanner(System.in);
-    public static EmployeeStorage employeeStorage = new EmployeeStorage();
+    private static Scanner scanner = new Scanner(System.in);
+    private static EmployeeStorage employeeStorage = new EmployeeStorage();
+    private static CompanyStorage companyStorage = new CompanyStorage();
 
     public static void main(String[] args) {
         boolean isRun = true;
@@ -34,12 +35,51 @@ public class EmployeeDemo {
                 case "6":
                     deleteEmployeeByID();
                     break;
-
+                case "7":
+                    addCompany();
+                    break;
+                case "8":
+                    companyStorage.printAll();
+                    break;
+                case "9":
+                    searchComById();
+                    break;
+                case "10":
+                    printByIdEmpl();
+                    break;
                 default:
                     System.out.println("Command not found, please try again");
             }
         }
 
+
+    }
+
+    private static void printByIdEmpl() {
+        System.out.println("Please input ID of company");
+        String printByID = scanner.nextLine();
+        if (companyStorage.getById(printByID) != null) {
+            employeeStorage.printByIdEmpl(printByID);
+        }else System.out.println("Company with this ID does not exists");
+    }
+
+
+    private static void addCompany() {
+        System.out.println("Please input companyId,name,industry,country");
+        String addCom = scanner.nextLine();
+        String[] s = addCom.split(",");
+        Company company = new Company(s[0], s[1], s[2], s[3]);
+        companyStorage.addCompany(company);
+        System.out.println("Company added!");
+    }
+
+    private static void searchComById() {
+        System.out.println("Please input ID of company");
+        String ByIDSearch = scanner.nextLine();
+        companyStorage.getById(ByIDSearch);
+        if (companyStorage.getById(ByIDSearch) != null){
+            System.out.println(companyStorage.getById(ByIDSearch));
+        }else System.out.println("Company with this ID not found");
 
     }
 
@@ -51,7 +91,10 @@ public class EmployeeDemo {
         System.out.println("Please input 4 for SEARCH EMPLOYEES BY COMPANY NAME");
         System.out.println("Please input 5 for SEARCH EMPLOYEES BY MINIMUM SALARY");
         System.out.println("Please input 6 for DELETE EMPLOYEE BY ID");
-;
+        System.out.println("Please input 7 for ADD COMPANY");
+        System.out.println("Please input 8 for PRINT ALL COMPANIES ");
+        System.out.println("Please input 9 for SEARCH COMPANY BY ID");
+        System.out.println("Please input 10 for PRINT EMPLOYEE BY COMPANY ID");
     }
 
     private static void addEmployee() {
@@ -64,6 +107,7 @@ public class EmployeeDemo {
 
     }
 
+
     private static void searchEmByID() {
         System.out.println("Please input employee ID");
         String searchId = scanner.nextLine();
@@ -75,12 +119,14 @@ public class EmployeeDemo {
         String serachCom = scanner.nextLine();
         employeeStorage.serachByCom(serachCom);
     }
+
     private static void deleteEmployeeByID() {
         System.out.println("Please input employee ID");
-        String delByID= scanner.nextLine();
+        String delByID = scanner.nextLine();
         employeeStorage.deleteById(delByID);
     }
-    private  static  void searchEmployeeWithMinSalary(){
+
+    private static void searchEmployeeWithMinSalary() {
         System.out.println("Please input minimum salary");
         double minSalary = Double.parseDouble(scanner.nextLine());
         employeeStorage.searchByMinSalary(minSalary);
