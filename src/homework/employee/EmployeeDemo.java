@@ -39,13 +39,19 @@ public class EmployeeDemo {
                     addCompany();
                     break;
                 case "8":
-                    companyStorage.printAll();
+                    companyStorage.print();
                     break;
                 case "9":
                     searchComById();
                     break;
                 case "10":
                     printByIdEmpl();
+                    break;
+                case "11":
+                    changeEmployeeCompany();
+                    break;
+                case "12":
+                    printEmployeeCompany();
                     break;
                 default:
                     System.out.println("Command not found, please try again");
@@ -67,10 +73,10 @@ public class EmployeeDemo {
     private static void addCompany() {
         System.out.println("Please input companyId,name,industry,country");
         String addCom = scanner.nextLine();
-        String[] s = addCom.split(",");
-        Company company = new Company(s[0], s[1], s[2], s[3]);
+        String[] addComsplit = addCom.split(",");
+        Company company = new Company(addComsplit[0], addComsplit[1], addComsplit[2], addComsplit[3]);
         companyStorage.addCompany(company);
-        System.out.println("Company added!");
+
     }
 
     private static void searchComById() {
@@ -82,7 +88,24 @@ public class EmployeeDemo {
         }else System.out.println("Company with this ID not found");
 
     }
+    private static void changeEmployeeCompany() {
+        System.out.println("Please input employee ID");
+        String employeeId = scanner.nextLine();
+        System.out.println("Please input new company ID");
+        String newCompanyId = scanner.nextLine();
 
+        Company newCompany = companyStorage.getById(newCompanyId);
+        if (newCompany == null) {
+            System.out.println("Company not found!");
+            return;
+        }
+        employeeStorage.changeEmployeeCompany(employeeId, newCompany);
+    }
+    private static void printEmployeeCompany() {
+        System.out.println("Please input employee ID");
+        String employeeId = scanner.nextLine();
+        employeeStorage.printEmployeeCompany(employeeId);
+    }
     private static void printCommands() {
         System.out.println("Please input 0 for EXIT");
         System.out.println("Please input 1 for ADD EMPLOYEE");
@@ -95,15 +118,18 @@ public class EmployeeDemo {
         System.out.println("Please input 8 for PRINT ALL COMPANIES ");
         System.out.println("Please input 9 for SEARCH COMPANY BY ID");
         System.out.println("Please input 10 for PRINT EMPLOYEE BY COMPANY ID");
+        System.out.println("Please input 11 for CHANGE EMPLOYEE COMPANY");
+        System.out.println("Please input 12 for PRINT EMPLOYEE COMPANY");
     }
 
     private static void addEmployee() {
         System.out.println("Please input name,surname,employeeID,salary,company,position (with ,)");
         String s = scanner.nextLine();
         String[] split = s.split(",");
-        Employee employee = new Employee(split[0], split[1], split[2], new Scanner(split[3]).nextDouble(), split[4], split[5]);
-        employeeStorage.add(employee);
-        System.out.println("Employee added!");
+        Company company = companyStorage.getById(split[4]);
+        Employee employee = new Employee(split[0], split[1], split[2], new Scanner(split[3]).nextDouble(), company, split[5]);
+        employeeStorage.addEmployee(employee);
+
 
     }
 

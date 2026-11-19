@@ -47,30 +47,30 @@ public class Company {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Company company = (Company) o;
-        return Objects.equals(companyID, company.companyID) && Objects.equals(name, company.name) && Objects.equals(industry, company.industry) && Objects.equals(country, company.country);
+        return Objects.equals(companyID, company.companyID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(companyID, name, industry, country);
+        return Objects.hash(companyID);
     }
+        public String getCountry () {
+            return country;
+        }
 
-    public String getCountry() {
-        return country;
-    }
+        public void setCountry (String country){
+            this.country = country;
+        }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+        public String getIndustry () {
+            return industry;
+        }
 
-    public String getIndustry() {
-        return industry;
+        public void setName (String name){
+            this.name = name;
+        }
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-}
 
